@@ -1,0 +1,5 @@
+# Ignore npm package directories
+node_modules/
+
+# Ignore npm package lock file
+package-lock.json
