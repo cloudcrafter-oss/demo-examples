@@ -15,6 +15,17 @@ app.get('/env', (req, res) => {
   res.send(`DUMMY_ENV_VAR: ${dummyEnvVar}`)
 })
 
+app.env('/all-env', (req, res) => {
+  try {
+    // Convert the process.env object to a more readable format
+    const envVariables = JSON.stringify(process.env, null, 2)
+    res.setHeader('Content-Type', 'application/json')
+    res.send(envVariables)
+  } catch (error) {
+    res.status(500).send(`Error retrieving environment variables: ${error.message}`)
+  }
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
