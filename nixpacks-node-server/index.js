@@ -15,7 +15,7 @@ app.get('/env', (req, res) => {
   res.send(`DUMMY_ENV_VAR: ${dummyEnvVar}`)
 })
 
-app.env('/all-env', (req, res) => {
+app.get('/all-env', (req, res) => {
   try {
     // Convert the process.env object to a more readable format
     const envVariables = JSON.stringify(process.env, null, 2)
