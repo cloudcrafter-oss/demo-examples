@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: cloudcrafter
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: demo
+    labels:
+      - "cloudcrafter.service.type=database"
+      - "cloudcrafter.service.instance=postgres"
+      - "cloudcrafter.service.version=16"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  
+volumes:
+  pgdata:
+    driver: local
